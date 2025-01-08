@@ -17,3 +17,7 @@ class TUI:
         print('*' * len(header))
         print(header)
         print('*' * len(header))
+
+    @staticmethod
+    def print_reviews(reviews):
+        print(reviews)
