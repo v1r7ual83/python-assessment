@@ -16,9 +16,10 @@ import time
 class Main:
     def __init__(self):
         TUI.print_header()
-
         print('Loading...')
         self.reviews = Process.read_reviews()
+        self.branches = Process.get_branches(self.reviews)
+
         # This line is just used for testing
         # time.sleep(3)
         print('Loading completed.')
