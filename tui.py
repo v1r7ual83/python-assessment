@@ -28,3 +28,15 @@ class TUI:
     def print_rows_amount(reviews):
         amount_of_rows = Process.count_rows(reviews)
         print(f'There are {amount_of_rows} rows.')
+
+
+    @staticmethod
+    def print_main_menu():
+        print('Please enter the letter which corresponds with your desired menu choice:')
+        print('\t [A] View Data')
+        print('\t [B] Visualise Data')
+        print('\t [X] Exit')
+
+    @staticmethod
+    def print_confirmed_option(option):
+        print(f'You have chosen option {option}')
