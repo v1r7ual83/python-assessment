@@ -40,3 +40,14 @@ class TUI:
     @staticmethod
     def print_confirmed_option(option):
         print(f'You have chosen option {option}')
+
+    @staticmethod
+    def handle_input():
+        i = input()
+
+        if len(i) <= 0:
+            print('No input detected!')
+            TUI.print_main_menu()
+            TUI.handle_input()
+
+        return i
