@@ -13,6 +13,7 @@ from tui import TUI
 
 import time
 
+
 class Main:
     def __init__(self):
         TUI.print_header()
@@ -69,6 +70,10 @@ class Main:
         else:
             print('Wrong input!')
             self.view_reviews_by_park_menu()
+
+    def number_of_reviews_by_park_and_reviewer_location(self):
+        pass
+
 
 if __name__ == '__main__':
     Main().run()
