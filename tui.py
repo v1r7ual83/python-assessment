@@ -7,6 +7,8 @@ Any errors or invalid inputs should be handled appropriately.
 Please note that you do not need to read the data file or perform any other such processing in this module.
 """
 
+from process import Process
+
 class TUI:
     def __init__(self):
         pass
@@ -21,3 +23,8 @@ class TUI:
     @staticmethod
     def print_reviews(reviews):
         print(reviews)
+
+    @staticmethod
+    def print_rows_amount(reviews):
+        amount_of_rows = Process.count_rows(reviews)
+        print(f'There are {amount_of_rows} rows.')
