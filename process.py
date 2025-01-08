@@ -34,3 +34,7 @@ class Process:
             if branch and branch not in branches:
                 branches.append(branch)
         return branches
+
+    @staticmethod
+    def get_reviews_by_park(branch_name, reviews):
+        return [review for review in reviews if review[4] == branch_name]
