@@ -7,3 +7,13 @@ Any errors or invalid inputs should be handled appropriately.
 Please note that you do not need to read the data file or perform any other such processing in this module.
 """
 
+class TUI:
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def print_header():
+        header = 'Disneyland Review Analyser'
+        print('*' * len(header))
+        print(header)
+        print('*' * len(header))
