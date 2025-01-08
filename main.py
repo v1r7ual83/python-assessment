@@ -65,7 +65,7 @@ class Main:
         selected_option = TUI.handle_input(TUI.print_reviews_by_park_menu)
 
         if selected_option in self.branches:
-            print(selected_option)
+            TUI.print_reviews_by_park(selected_option, self.reviews)
         else:
             print('Wrong input!')
             self.view_reviews_by_park_menu()

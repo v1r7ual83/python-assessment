@@ -69,3 +69,8 @@ class TUI:
 
         for i, branch in enumerate(branches):
             print(f'\t{i + 1}. {branch}')
+
+    @staticmethod
+    def print_reviews_by_park(branch_name, reviews):
+        for review in Process.get_reviews_by_park(branch_name, reviews):
+            print(f'Review ID: {review[0]}. Rating: {review[1]}. Year-Month: {review[2]}. Reviewer Location: {review[3]}.')
