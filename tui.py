@@ -62,13 +62,18 @@ class TUI:
             return i
 
     @staticmethod
-    def print_reviews_by_park_menu():
-        print('For which branch would you like to see the reviews? (Type name of the branch)')
+    def print_branches():
+        # This should come from Main class
         reviews = Process.read_reviews()
         branches = Process.get_branches(reviews)
 
         for i, branch in enumerate(branches):
             print(f'\t{i + 1}. {branch}')
+
+    @staticmethod
+    def print_reviews_by_park_menu():
+        print('For which branch would you like to see the reviews? (Type name of the branch)')
+        TUI.print_branches()
 
     @staticmethod
     def print_reviews_by_park(branch_name, reviews):
