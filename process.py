@@ -25,3 +25,12 @@ class Process:
     @staticmethod
     def count_rows(rows):
         return len(rows)
+
+    @staticmethod
+    def get_branches(reviews):
+        branches = []
+        for review in reviews:
+            branch = review[4] # Branch name
+            if branch and branch not in branches:
+                branches.append(branch)
+        return branches
