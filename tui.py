@@ -38,16 +38,25 @@ class TUI:
         print('\t [X] Exit')
 
     @staticmethod
+    def print_view_data_menu():
+        print('Please enter one of the following options:')
+        print('\t [A] View Reviews by Park')
+        print('\t [B] Number of Reviews by Park and Reviewer Location')
+        print('\t [C] Average Score per year by Park')
+        print('\t [D] Average Score per Park by Reviewer Location')
+
+    @staticmethod
     def print_confirmed_option(option):
         print(f'You have chosen option {option}')
 
     @staticmethod
-    def handle_input():
-        i = input()
+    def handle_input(cb):
+        while True:
+            cb()
+            i = input()
 
-        if len(i) <= 0:
-            print('No input detected!')
-            TUI.print_main_menu()
-            TUI.handle_input()
+            if len(i) <= 0:
+                print('No input detected!')
+                TUI.handle_input(cb)
 
-        return i
+            return i
