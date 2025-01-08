@@ -26,5 +26,25 @@ class Main:
     def run(self):
         TUI.print_rows_amount(self.reviews)
 
+        self.choose_main_menu()
+
+    def choose_main_menu(self):
+        TUI.print_main_menu()
+
+        selected_option = TUI.handle_input()
+
+        if selected_option == 'A':
+            TUI.print_confirmed_option('A - View Data')
+            print(1)
+        elif selected_option == 'B':
+            TUI.print_confirmed_option('B - Visualise Data')
+            print(2)
+        elif selected_option == 'X':
+            TUI.print_confirmed_option('X - Exit')
+            exit()
+        else:
+            print('Wrong input!')
+            self.choose_main_menu()
+
 if __name__ == '__main__':
     Main().run()
