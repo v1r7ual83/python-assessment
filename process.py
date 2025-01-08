@@ -21,3 +21,7 @@ class Process:
                 reviews.append(review)
 
             return reviews
+
+    @staticmethod
+    def count_rows(rows):
+        return len(rows)
