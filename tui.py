@@ -60,3 +60,12 @@ class TUI:
                 TUI.handle_input(cb)
 
             return i
+
+    @staticmethod
+    def print_reviews_by_park_menu():
+        print('For which branch would you like to see the reviews? (Type name of the branch)')
+        reviews = Process.read_reviews()
+        branches = Process.get_branches(reviews)
+
+        for i, branch in enumerate(branches):
+            print(f'\t{i + 1}. {branch}')
