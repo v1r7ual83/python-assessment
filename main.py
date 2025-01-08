@@ -50,7 +50,7 @@ class Main:
         selected_option = TUI.handle_input(TUI.print_view_data_menu)
 
         if selected_option == 'A':
-            print(1)
+            self.view_reviews_by_park_menu()
         elif selected_option == 'B':
             print(2)
         elif selected_option == 'C':
@@ -60,6 +60,15 @@ class Main:
         else:
             print('Wrong Input!')
             self.view_data_menu()
+
+    def view_reviews_by_park_menu(self):
+        selected_option = TUI.handle_input(TUI.print_reviews_by_park_menu)
+
+        if selected_option in self.branches:
+            print(selected_option)
+        else:
+            print('Wrong input!')
+            self.view_reviews_by_park_menu()
 
 if __name__ == '__main__':
     Main().run()
