@@ -64,11 +64,11 @@ class TUI:
             return i
 
     @staticmethod
-    def print_branches(branches):
+    def print_list(branches):
         for i, branch in enumerate(branches):
             print(f'\t{i + 1}. {branch}')
 
     @staticmethod
     def print_reviews_by_park_menu(branches):
         print('For which branch would you like to see the reviews? (Type name of the branch)')
-        TUI.print_branches(branches)
+        TUI.print_list(branches)
