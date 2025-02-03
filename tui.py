@@ -55,18 +55,17 @@ class TUI:
     def handle_input(cb):
         while True:
             cb()
-            i = input()
+            i = input().strip()
 
-            if len(i) <= 0:
-                print('No input detected!')
-                TUI.handle_input(cb)
-
+            if len(i) == 0:
+                print('No input detected! Try again.')
+                continue
             return i
 
     @staticmethod
-    def print_list(branches):
-        for i, branch in enumerate(branches):
-            print(f'\t{i + 1}. {branch}')
+    def print_list(items):
+        for i, item in enumerate(items):
+            print(f'\t{i + 1}. {item}')
 
     @staticmethod
     def print_reviews_by_park_menu(branches):
