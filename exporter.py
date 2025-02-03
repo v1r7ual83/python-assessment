@@ -11,6 +11,18 @@ class Park:
                 locations.append(review.reviewer_location)
         return locations
 
+    @property
+    def years(self):
+        yrs = []
+        for review in self.reviews.values():
+            if review.date == 'missing':
+                continue
+
+            yr = review.date.split('-')[0]
+            if yr not in yrs:
+                yrs.append(yr)
+        return yrs
+
 class Review:
     def __init__(self, review_id, rating, date, reviewer_location, park):
         self.review_id = review_id
