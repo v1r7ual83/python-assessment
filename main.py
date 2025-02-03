@@ -19,7 +19,7 @@ class Main:
         TUI.print_header()
         print('Loading...')
         self.reviews = Process.read_reviews()
-        self.branches = Process.get_branches(self.reviews)
+        self.parks = Process.get_parks(self.reviews)
 
         # This line is just used for testing
         # time.sleep(3)
@@ -65,7 +65,7 @@ class Main:
     def view_reviews_by_park_menu(self):
         selected_option = TUI.handle_input(TUI.print_reviews_by_park_menu)
 
-        if selected_option in self.branches:
+        if selected_option in self.parks:
             TUI.print_reviews_by_park(selected_option, self.reviews)
         else:
             print('Wrong input!')

@@ -5,6 +5,7 @@ It is likely that most sections will require functions to be placed in this modu
 """
 
 import csv
+from exporter import Park, Review
 
 class Process:
     def __init__(self):
@@ -27,13 +28,19 @@ class Process:
         return len(rows)
 
     @staticmethod
-    def get_branches(reviews):
-        branches = []
+    def get_parks(reviews):
+        parks = {}
+
         for review in reviews:
-            branch = review[4] # Branch name
-            if branch and branch not in branches:
-                branches.append(branch)
-        return branches
+            review_id, rating, date, reviewer_location, park = review
+
+            if park not in parks:
+                parks[park] = Park(park)
+
+            if review_id not in parks[park].reviews:
+                parks[park].reviews[review_id] = Review(int(review_id), int(rating), date, park)
+
+        return parks
 
     @staticmethod
     def get_reviews_by_park(branch_name, reviews):
