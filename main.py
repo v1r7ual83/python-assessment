@@ -53,7 +53,7 @@ class Main:
         if selected_option == 'A':
             self.view_reviews_by_park_menu()
         elif selected_option == 'B':
-            print(2)
+            self.a_b()
         elif selected_option == 'C':
             print(3)
         elif selected_option == 'D':
@@ -61,6 +61,23 @@ class Main:
         else:
             print('Wrong Input!')
             self.view_data_menu()
+
+    def a_b(self):
+        selected_park = TUI.handle_input(lambda: TUI.print_list(self.parks))
+
+        if selected_park not in self.parks:
+            print('Wrong input! Try again.')
+            return self.a_b()
+
+        while True:
+            selected_location = TUI.handle_input(lambda: TUI.print_list(self.parks[selected_park].reviewer_locations))
+
+            if selected_location in self.parks[selected_park].reviewer_locations:
+                num_reviews = len(Process.filter_dic(self.parks[selected_park].reviews, {"reviewer_location": selected_location}))
+                print(f'Number of reviews for {selected_park} park and {selected_location} reviewer location is: {num_reviews}.')
+                break
+
+            print('Wrong input! Try again.')
 
     def view_reviews_by_park_menu(self):
         selected_option = TUI.handle_input(lambda: TUI.print_reviews_by_park_menu(self.parks.keys()))
