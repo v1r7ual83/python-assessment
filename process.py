@@ -38,7 +38,7 @@ class Process:
                 parks[park] = Park(park)
 
             if review_id not in parks[park].reviews:
-                parks[park].reviews[review_id] = Review(int(review_id), int(rating), date, park)
+                parks[park].reviews[review_id] = Review(int(review_id), int(rating), date, reviewer_location, park)
 
         return parks
 
