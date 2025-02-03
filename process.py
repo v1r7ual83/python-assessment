@@ -46,6 +46,11 @@ class Process:
     def get_reviews_by_park(branch_name, reviews):
         return [review for review in reviews if review[4] == branch_name]
 
+    @staticmethod
+    def filter_dic(dic, filters):
+        return dict(
+            filter(lambda item: all(getattr(item[1], f_k, None) == f_v for f_k, f_v in filters.items()), dic.items()))
+
     """
     @staticmethod
     def get_reviews
