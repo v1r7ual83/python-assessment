@@ -22,7 +22,9 @@ class TUI:
 
     @staticmethod
     def print_reviews(reviews):
-        print(reviews)
+        for review in reviews:
+            print(' '.join([f'{str(k).capitalize().replace('_', ' ')}: {v}.' for k, v in review.items()]), end='')
+            print()
 
     @staticmethod
     def print_rows_amount(reviews):
@@ -62,20 +64,11 @@ class TUI:
             return i
 
     @staticmethod
-    def print_branches():
-        # This should come from Main class
-        reviews = Process.read_reviews()
-        branches = Process.get_branches(reviews)
-
+    def print_branches(branches):
         for i, branch in enumerate(branches):
             print(f'\t{i + 1}. {branch}')
 
     @staticmethod
-    def print_reviews_by_park_menu():
+    def print_reviews_by_park_menu(branches):
         print('For which branch would you like to see the reviews? (Type name of the branch)')
-        TUI.print_branches()
-
-    @staticmethod
-    def print_reviews_by_park(branch_name, reviews):
-        for review in Process.get_reviews_by_park(branch_name, reviews):
-            print(f'Review ID: {review[0]}. Rating: {review[1]}. Year-Month: {review[2]}. Reviewer Location: {review[3]}.')
+        TUI.print_branches(branches)

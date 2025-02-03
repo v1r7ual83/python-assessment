@@ -63,10 +63,10 @@ class Main:
             self.view_data_menu()
 
     def view_reviews_by_park_menu(self):
-        selected_option = TUI.handle_input(TUI.print_reviews_by_park_menu)
+        selected_option = TUI.handle_input(lambda: TUI.print_reviews_by_park_menu(self.parks.keys()))
 
         if selected_option in self.parks:
-            TUI.print_reviews_by_park(selected_option, self.reviews)
+            TUI.print_reviews([review.__dict__ for review in self.parks[selected_option].reviews.values()])
         else:
             print('Wrong input!')
             self.view_reviews_by_park_menu()
