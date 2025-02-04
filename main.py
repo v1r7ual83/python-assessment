@@ -9,6 +9,7 @@ Note:   any user input/output should be done in the module 'tui'
 """
 
 from process import Process
+from visual import Visualise
 from tui import TUI
 
 import time
@@ -39,7 +40,7 @@ class Main:
             self.a()
         elif selected_option == 'B':
             TUI.print_confirmed_option('B - Visualise Data')
-            print(2)
+            self.b()
         elif selected_option == 'X':
             TUI.print_confirmed_option('X - Exit')
             exit()
@@ -109,7 +110,7 @@ class Main:
         selected_option = TUI.handle_input(TUI.print_visualise_data)
 
         if selected_option == 'A':
-            print(1)
+            Visualise.a(self.parks)
         elif selected_option == 'B':
             print(2)
         elif selected_option == 'C':
