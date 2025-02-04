@@ -57,7 +57,7 @@ class Park:
         sorted_locations = dict(sorted(locations.items(), key=lambda l: l[1]['avg'], reverse=True))
 
         if limit:
-            return sorted_locations[:limit]
+            return dict(list(sorted_locations.items())[:limit])
         return sorted_locations
 
     def get_avg_score_for_year(self, yr):
