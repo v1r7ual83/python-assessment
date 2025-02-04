@@ -23,6 +23,12 @@ class Park:
                 yrs.append(yr)
         return yrs
 
+    def get_avg_score_for_year(self, yr):
+        filtered_reviews = {review for review in self.reviews.values() if str(review.date).startswith(str(yr))}
+        total = sum([review.rating for review in filtered_reviews])
+        count = len(filtered_reviews)
+        return total / count if count > 0 else 0
+
 class Review:
     def __init__(self, review_id, rating, date, reviewer_location, park):
         self.review_id = review_id
