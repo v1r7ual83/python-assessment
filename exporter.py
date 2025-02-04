@@ -41,8 +41,7 @@ class Park:
                 locations.append(review.reviewer_location)
         return locations
 
-    @property
-    def top_locations(self, limit = None):
+    def get_top_locations(self, limit = None):
         locations = {location: {'sum': 0, 'count': 0} for location in self.reviewers_locations}
 
         for review in self.reviews.values():
