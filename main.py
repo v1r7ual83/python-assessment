@@ -55,7 +55,7 @@ class Main:
         elif selected_option == 'B':
             self.a_b()
         elif selected_option == 'C':
-            print(3)
+            self.a_c()
         elif selected_option == 'D':
             print(4)
         else:
@@ -84,6 +84,23 @@ class Main:
             if selected_location in self.parks[selected_park].reviewer_locations:
                 num_reviews = len(Process.filter_dic(self.parks[selected_park].reviews, {"reviewer_location": selected_location}))
                 print(f'Number of reviews for {selected_park} park and {selected_location} reviewer location is: {num_reviews}.')
+                break
+
+            print('Wrong input! Try again.')
+
+    def a_c(self):
+        selected_park = TUI.handle_input(lambda: TUI.print_list(self.parks))
+
+        if selected_park not in self.parks:
+            print('Wrong input! Try again.')
+            return self.a_c()
+
+        while True:
+            selected_year = TUI.handle_input(lambda: TUI.print_list(self.parks[selected_park].years))
+
+            if selected_year in self.parks[selected_park].years:
+                result = self.parks[selected_park].get_avg_score_for_year(selected_year)
+                print(f'Average Score for year {selected_year} is {result}.')
                 break
 
             print('Wrong input! Try again.')
