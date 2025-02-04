@@ -60,6 +60,26 @@ class Park:
             return dict(list(sorted_locations.items())[:limit])
         return sorted_locations
 
+    def get_avg_score_per_month(self):
+        months = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ]
+        avg_scores = {i + 1: {'sum': 0, 'count': 0, 'name': month} for i, month in enumerate(months)}
+
+        for review in self.reviews.values():
+            if review.date == 'missing':
+                continue
+
+            month = int(review.date.split('-')[1])
+            avg_scores[month]['count'] += 1
+            avg_scores[month]['sum'] += review.rating
+
+        for month in avg_scores.values():
+            month['avg'] = round(month['sum'] / month['count'], 1) if month['count'] > 0 else 0
+
+        return avg_scores
+
     def get_avg_score_for_year(self, yr):
         filtered_reviews = {review for review in self.reviews.values() if str(review.date).startswith(str(yr))}
         total = sum([review.rating for review in filtered_reviews])
