@@ -51,7 +51,7 @@ class Main:
         selected_option = TUI.handle_input(TUI.print_view_data_menu)
 
         if selected_option == 'A':
-            self.view_reviews_by_park_menu()
+            self.a_a()
         elif selected_option == 'B':
             self.a_b()
         elif selected_option == 'C':
@@ -61,6 +61,15 @@ class Main:
         else:
             print('Wrong Input!')
             self.a()
+
+    def a_a(self):
+        selected_option = TUI.handle_input(lambda: TUI.print_reviews_by_park_menu(self.parks.keys()))
+
+        if selected_option in self.parks:
+            TUI.print_reviews([review.__dict__ for review in self.parks[selected_option].reviews.values()])
+        else:
+            print('Wrong input!')
+            self.a_a()
 
     def a_b(self):
         selected_park = TUI.handle_input(lambda: TUI.print_list(self.parks))
@@ -78,15 +87,6 @@ class Main:
                 break
 
             print('Wrong input! Try again.')
-
-    def view_reviews_by_park_menu(self):
-        selected_option = TUI.handle_input(lambda: TUI.print_reviews_by_park_menu(self.parks.keys()))
-
-        if selected_option in self.parks:
-            TUI.print_reviews([review.__dict__ for review in self.parks[selected_option].reviews.values()])
-        else:
-            print('Wrong input!')
-            self.view_reviews_by_park_menu()
 
     def number_of_reviews_by_park_and_reviewer_location(self):
         pass
