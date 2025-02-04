@@ -4,6 +4,10 @@ class Park:
         self.reviews = {}
 
     @property
+    def reviews_count(self):
+        return len(self.reviews)
+
+    @property
     def reviewer_locations(self):
         locations = []
         for review in self.reviews.values():
