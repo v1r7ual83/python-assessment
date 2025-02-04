@@ -19,3 +19,17 @@ class Visualise:
 
         plt.title('Most Reviewed Parks')
         plt.show()
+
+    @staticmethod
+    def b(parks):
+        fig, ax = plt.subplots()
+
+        names = parks.keys()
+        avg_scores = [park.avg_reviews_score for park in parks.values()]
+
+        ax.bar(names, avg_scores, label=names)
+
+        ax.set_ylabel('Average Reviews Score')
+        ax.set_title('Average Scores')
+
+        plt.show()

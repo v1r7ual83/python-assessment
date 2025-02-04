@@ -112,7 +112,7 @@ class Main:
         if selected_option == 'A':
             Visualise.a(self.parks)
         elif selected_option == 'B':
-            print(2)
+            Visualise.b(self.parks)
         elif selected_option == 'C':
             print(3)
         elif selected_option == 'D':
