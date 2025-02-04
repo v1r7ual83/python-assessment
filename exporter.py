@@ -27,6 +27,12 @@ class Park:
                 yrs.append(yr)
         return yrs
 
+    @property
+    def avg_reviews_score(self):
+        total = sum([review.rating for review in self.reviews.values()])
+        count = len(self.reviews)
+        return total / count if count > 0 else 0
+
     def get_avg_score_for_year(self, yr):
         filtered_reviews = {review for review in self.reviews.values() if str(review.date).startswith(str(yr))}
         total = sum([review.rating for review in filtered_reviews])
