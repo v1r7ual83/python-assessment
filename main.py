@@ -35,13 +35,13 @@ class Main:
     def main_menu(self):
         selected_option = TUI.handle_input(TUI.print_main_menu)
 
-        if selected_option == 'A':
+        if selected_option.upper() == 'A':
             TUI.print_confirmed_option('A - View Data')
             self.a()
-        elif selected_option == 'B':
+        elif selected_option.upper() == 'B':
             TUI.print_confirmed_option('B - Visualise Data')
             self.b()
-        elif selected_option == 'X':
+        elif selected_option.upper() == 'X':
             TUI.print_confirmed_option('X - Exit')
             exit()
         else:
@@ -51,13 +51,13 @@ class Main:
     def a(self):
         selected_option = TUI.handle_input(TUI.print_view_data_menu)
 
-        if selected_option == 'A':
+        if selected_option.upper() == 'A':
             self.a_a()
-        elif selected_option == 'B':
+        elif selected_option.upper() == 'B':
             self.a_b()
-        elif selected_option == 'C':
+        elif selected_option.upper() == 'C':
             self.a_c()
-        elif selected_option == 'D':
+        elif selected_option.upper() == 'D':
             self.a_d()
         else:
             print('Wrong Input!')
@@ -115,13 +115,13 @@ class Main:
     def b(self):
         selected_option = TUI.handle_input(TUI.print_visualise_data)
 
-        if selected_option == 'A':
+        if selected_option.upper() == 'A':
             Visualise.a(self.parks)
-        elif selected_option == 'B':
+        elif selected_option.upper() == 'B':
             Visualise.b(self.parks)
-        elif selected_option == 'C':
+        elif selected_option.upper() == 'C':
             self.b_c()
-        elif selected_option == 'D':
+        elif selected_option.upper() == 'D':
             self.b_d()
         else:
             print('Wrong Input!')
