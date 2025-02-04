@@ -38,7 +38,7 @@ class Visualise:
     def c(park):
         fig, ax = plt.subplots()
 
-        top_locations = park.get_top_locations(10)
+        top_locations = park.get_locations(10)
 
         locations = top_locations.keys()
         avg_scores = [location['avg'] for location in top_locations.values()]
