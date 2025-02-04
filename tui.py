@@ -16,9 +16,9 @@ class TUI:
     @staticmethod
     def print_header():
         header = 'Disneyland Review Analyser'
-        print('*' * len(header))
+        print('-' * len(header))
         print(header)
-        print('*' * len(header))
+        print('-' * len(header))
 
     @staticmethod
     def print_reviews(reviews):
@@ -80,8 +80,8 @@ class TUI:
 
     @staticmethod
     def print_list(items):
-        for i, item in enumerate(items):
-            print(f'\t{i + 1}. {item}')
+        for item in items:
+            print(f'\t-> {item}')
 
     @staticmethod
     def print_reviews_by_park_menu(branches):
