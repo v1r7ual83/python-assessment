@@ -128,7 +128,7 @@ class Main:
             Visualise.c(self.parks[selected_park])
         else:
             print('Wrong input!')
-            self.a_a()
+            self.b_c()
 
     def number_of_reviews_by_park_and_reviewer_location(self):
         pass
