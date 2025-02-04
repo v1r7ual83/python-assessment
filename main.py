@@ -10,6 +10,7 @@ Note:   any user input/output should be done in the module 'tui'
 
 from process import Process
 from visual import Visualise
+from exporter import Exporter
 from tui import TUI
 
 import time
@@ -41,6 +42,9 @@ class Main:
         elif selected_option.upper() == 'B':
             TUI.print_confirmed_option('B - Visualise Data')
             self.b()
+        elif selected_option.upper() == 'C':
+            TUI.print_confirmed_option('C - Export Data')
+            self.c()
         elif selected_option.upper() == 'X':
             TUI.print_confirmed_option('X - Exit')
             exit()
@@ -144,6 +148,15 @@ class Main:
         else:
             print('Wrong input!')
             self.b_c()
+
+    def c(self):
+        selected_type = TUI.handle_input(TUI.print_exported_data_types)
+
+        if selected_type not in ['txt', 'csv','json']:
+            print('Wrong input! Try again.')
+            return self.c()
+        else:
+            Exporter.export_data(self.reviews, selected_type)
 
     def number_of_reviews_by_park_and_reviewer_location(self):
         pass
