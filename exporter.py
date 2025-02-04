@@ -33,6 +33,34 @@ class Park:
         count = len(self.reviews)
         return total / count if count > 0 else 0
 
+    @property
+    def reviewers_locations(self):
+        locations = []
+        for review in self.reviews.values():
+            if review.reviewer_location not in locations:
+                locations.append(review.reviewer_location)
+        return locations
+
+    @property
+    def top_locations(self, limit = None):
+        locations = {location: {'sum': 0, 'count': 0} for location in self.reviewers_locations}
+
+        for review in self.reviews.values():
+            if review.reviewer_location in locations:
+                locations[review.reviewer_location]['sum'] += review.rating
+                locations[review.reviewer_location]['count'] += 1
+
+        for location in locations:
+            s = locations[location]['sum']
+            c = locations[location]['count']
+            locations[location]['avg'] = round(s / c, 1) if c > 0 else 0
+
+        sorted_locations = dict(sorted(locations.items(), key=lambda l: l[1]['avg'], reverse=True))
+
+        if limit:
+            return sorted_locations[:limit]
+        return sorted_locations
+
     def get_avg_score_for_year(self, yr):
         filtered_reviews = {review for review in self.reviews.values() if str(review.date).startswith(str(yr))}
         total = sum([review.rating for review in filtered_reviews])
