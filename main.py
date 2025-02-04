@@ -105,6 +105,21 @@ class Main:
 
             print('Wrong input! Try again.')
 
+    def b(self):
+        selected_option = TUI.handle_input(TUI.print_visualise_data)
+
+        if selected_option == 'A':
+            print(1)
+        elif selected_option == 'B':
+            print(2)
+        elif selected_option == 'C':
+            print(3)
+        elif selected_option == 'D':
+            print(4)
+        else:
+            print('Wrong Input!')
+            self.b()
+
     def number_of_reviews_by_park_and_reviewer_location(self):
         pass
 
