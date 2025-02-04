@@ -48,6 +48,14 @@ class TUI:
         print('\t [D] Average Score per Park by Reviewer Location')
 
     @staticmethod
+    def print_visualise_data():
+        print('Please enter one of the following options:')
+        print('\t [A] Most Reviewed Parks')
+        print('\t [B] Average Scores')
+        print('\t [C] Park Ranking by Nationality')
+        print('\t [D] Most Popular Month by Park')
+
+    @staticmethod
     def print_confirmed_option(option):
         print(f'You have chosen option {option}')
 
