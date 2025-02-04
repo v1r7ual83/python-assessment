@@ -64,7 +64,7 @@ class Park:
         filtered_reviews = {review for review in self.reviews.values() if str(review.date).startswith(str(yr))}
         total = sum([review.rating for review in filtered_reviews])
         count = len(filtered_reviews)
-        return total / count if count > 0 else 0
+        return round(total / count, 1) if count > 0 else 0
 
 class Review:
     def __init__(self, review_id, rating, date, reviewer_location, park):
