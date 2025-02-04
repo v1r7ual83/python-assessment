@@ -51,3 +51,19 @@ class Visualise:
         ax.set_title('Park Ranking by Nationality')
 
         plt.show()
+
+    @staticmethod
+    def d(park):
+        fig, ax = plt.subplots()
+
+        months = park.get_avg_score_per_month()
+
+        months_names = [month['name'] for month in months.values()]
+        avg_scores = [month['avg'] for month in months.values()]
+
+        ax.bar(months_names, avg_scores, label=months_names)
+
+        ax.set_ylabel('Average Reviews Score')
+        ax.set_title('Most Popular Month by Park')
+
+        plt.show()
