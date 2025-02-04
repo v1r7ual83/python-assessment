@@ -58,7 +58,7 @@ class Main:
         elif selected_option == 'C':
             self.a_c()
         elif selected_option == 'D':
-            print(4)
+            self.a_d()
         else:
             print('Wrong Input!')
             self.a()
@@ -105,6 +105,12 @@ class Main:
                 break
 
             print('Wrong input! Try again.')
+
+    def a_d(self):
+        for park_name, park in self.parks.items():
+            print(park_name)
+            for location in park.get_locations().items():
+                print(f'\t{location[0]} - {location[1]['avg']}')
 
     def b(self):
         selected_option = TUI.handle_input(TUI.print_visualise_data)
