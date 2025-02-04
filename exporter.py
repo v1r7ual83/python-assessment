@@ -1,3 +1,50 @@
+import csv
+import json
+
+class Exporter:
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def export_data(reviews, format_type):
+        file_name = 'data'
+        data = [
+            {
+                "Review ID": review[0],
+                "Rating": review[1],
+                "Date": review[2],
+                "Reviewer Location": review[3],
+                "Park": review[4]
+            }
+            for review in reviews
+        ]
+
+        if format_type == "json":
+            with open(f"{file_name}.json", "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=4)
+            print(f"Data successfully exported as {file_name}.json")
+
+        elif format_type == "csv":
+            with open(f"{file_name}.csv", "w", newline="", encoding="utf-8") as f:
+                writer = csv.DictWriter(f, fieldnames=data[0].keys())
+                writer.writeheader()
+                writer.writerows(data)
+            print(f"Data successfully exported as {file_name}.csv")
+
+        elif format_type == "txt":
+            with open(f"{file_name}.txt", "w", encoding="utf-8") as f:
+                for review in data:
+                    f.write(f"Review ID: {review['Review ID']}\n")
+                    f.write(f"Rating: {review['Rating']}\n")
+                    f.write(f"Date: {review['Date']}\n")
+                    f.write(f"Reviewer Location: {review['Reviewer Location']}\n")
+                    f.write(f"Park: {review['Park']}\n")
+                    f.write("\n")
+            print(f"Data successfully exported as {file_name}.txt")
+
+        else:
+            print("Invalid format! Choose from 'txt', 'csv', or 'json'.")
+
 class Park:
     def __init__(self, name):
         self.name = name
