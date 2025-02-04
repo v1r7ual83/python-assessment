@@ -33,3 +33,21 @@ class Visualise:
         ax.set_title('Average Scores')
 
         plt.show()
+
+    @staticmethod
+    def c(park):
+        fig, ax = plt.subplots()
+
+        top_locations = park.get_top_locations(10)
+
+        locations = top_locations.keys()
+        avg_scores = [location['avg'] for location in top_locations.values()]
+
+
+
+        ax.bar(locations, avg_scores, label=locations)
+
+        ax.set_ylabel('Average Reviews Score')
+        ax.set_title('Park Ranking by Nationality')
+
+        plt.show()

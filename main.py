@@ -114,12 +114,21 @@ class Main:
         elif selected_option == 'B':
             Visualise.b(self.parks)
         elif selected_option == 'C':
-            print(3)
+            self.b_c()
         elif selected_option == 'D':
             print(4)
         else:
             print('Wrong Input!')
             self.b()
+
+    def b_c(self):
+        selected_park = TUI.handle_input(lambda: TUI.print_reviews_by_park_menu(self.parks.keys()))
+
+        if selected_park in self.parks:
+            Visualise.c(self.parks[selected_park])
+        else:
+            print('Wrong input!')
+            self.a_a()
 
     def number_of_reviews_by_park_and_reviewer_location(self):
         pass
