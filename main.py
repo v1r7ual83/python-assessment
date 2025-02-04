@@ -36,7 +36,7 @@ class Main:
 
         if selected_option == 'A':
             TUI.print_confirmed_option('A - View Data')
-            self.view_data_menu()
+            self.a()
         elif selected_option == 'B':
             TUI.print_confirmed_option('B - Visualise Data')
             print(2)
@@ -47,7 +47,7 @@ class Main:
             print('Wrong input!')
             self.main_menu()
 
-    def view_data_menu(self):
+    def a(self):
         selected_option = TUI.handle_input(TUI.print_view_data_menu)
 
         if selected_option == 'A':
@@ -60,7 +60,7 @@ class Main:
             print(4)
         else:
             print('Wrong Input!')
-            self.view_data_menu()
+            self.a()
 
     def a_b(self):
         selected_park = TUI.handle_input(lambda: TUI.print_list(self.parks))
