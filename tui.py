@@ -37,6 +37,7 @@ class TUI:
         print('Please enter the letter which corresponds with your desired menu choice:')
         print('\t [A] View Data')
         print('\t [B] Visualise Data')
+        print('\t [C] Export Data')
         print('\t [X] Exit')
 
     @staticmethod
@@ -54,6 +55,13 @@ class TUI:
         print('\t [B] Average Scores')
         print('\t [C] Park Ranking by Nationality')
         print('\t [D] Most Popular Month by Park')
+
+    @staticmethod
+    def print_exported_data_types():
+        print('Please enter one of the following options:')
+        print('\t 1. txt')
+        print('\t 2. csv')
+        print('\t 3. json')
 
     @staticmethod
     def print_confirmed_option(option):
